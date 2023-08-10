@@ -40,3 +40,15 @@ main {
     color:#afa3ff;
     transform:scale(1.2);
 }
+.fa-bars
+ {
+    cursor: pointer;
+ }
+ i {
+    cursor:pointer;
+    transition: transform 0.3s ease;
+
+ }
+ i:hover {
+    transform: translateX(3px) rotateX(20deg);
+ }

@@ -34,12 +34,12 @@
                     echo "<a href='index.php'><button class='btn'>Login now</button></a>";
                 }
             }
-            if(isset($_SESSION['valid'])){
-                header("Location: home.php");
-            }
-            else {
-                header("Location:register.php");
-            }
+            // if(isset($_SESSION['valid'])){
+            //     header("Location: home.php");
+            // }
+            // else {
+            //     header("Location:register.php");
+            // }
             
         ?>
             <header>Sign Up</header>
