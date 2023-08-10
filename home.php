@@ -17,6 +17,9 @@
         <div class="logo">
             <p><a href="home.php">Logo</a></p>
         </div>
+        <div id="loading-screen">
+    <p id="loading-text">Loading...</p>
+  </div>
 
         <div class="right-links">
             <?php 
@@ -104,7 +107,15 @@ const deleteButtons = document.querySelectorAll('.delete-button');
 const modal = document.getElementById('modal');
 const closeModal = document.querySelector('.close-button');
 const confirmDeleteButton = document.getElementById('confirm-delete');
- modal.style.display = 'block';
+$('#loading-screen').hide();
+//  modal.style.display = 'block';
+$(document).ready(function() {
+            setTimeout(function() {
+                $('#loading-screen').show('slow');
+                $('#loading-screen').hide('slow');
+            }, 500)
+        }); // 2 seconds delay
+
 deleteButtons.forEach(button => {
   button.addEventListener('click', () => {
     modal.style.display = 'block';
@@ -119,7 +130,7 @@ confirmDeleteButton.addEventListener('click', () => {
   // Perform delete operation here
   modal.style.display = 'none';
 });
-
+ 
 $(document).ready(function() {
             $('.fa-trash').click(function() {
                 
