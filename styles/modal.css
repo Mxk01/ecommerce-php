@@ -35,4 +35,7 @@
   .delete-button:focus {
     outline: none;
   }
-  
+  table > tr > td > #product__image
+{
+    width:300px;
+}

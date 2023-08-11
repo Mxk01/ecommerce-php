@@ -78,6 +78,7 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
     line-height: 60px;
     z-index: 100;
 }
@@ -89,6 +90,10 @@ body{
 .logo a{
     text-decoration: none;
     color: #000;
+}
+.logo> p > a >  img {
+    width:100px;
+    height:100px;
 }
 .right-links a{
     padding: 0 10px;
@@ -138,3 +143,5 @@ main{
 #shopping-cart {
     color:blue;
 }
+ 
+ 
