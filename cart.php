@@ -34,7 +34,7 @@
                 $username = $result['Username'];
                 $email = $result['Email'];
                 $result_id = $result['Id'];
-            }
+             }
             if(!isset($_SESSION['valid']))
             {
                 header("Location:index.php");
@@ -68,6 +68,7 @@
                 <th>Product</th>
                 <!-- <th>Description</th> -->
                 <th>Price</th>
+                <th>Quantity</th>
                 <th>Detalii</th>
             </tr>
         </thead>
@@ -75,7 +76,7 @@
     <?php 
     # only select the products which belong to this user 
    $productsQuery = "
-   SELECT p.Id, p.Title, p.Price, p.Stoc
+   SELECT p.Id, p.Title, p.Price, p.Stoc,p.quantity
    FROM products p
    JOIN product_ownership po ON p.Id = po.product_id
    WHERE po.user_id = '$id'";
@@ -89,14 +90,16 @@
             $title = $row['Title'];
             $price = $row['Price'];
             $stoc = $row['Stoc'];
+            $qty = $row['quantity'];
 
             echo "<tr>
             <td>$noCount</td>
             <td>$title</td>
             <td>$price</td>
+            <td>$qty</td>
             <td>
-              <i class='fa-regular fa-eye'></i>
-              <i class='fa-solid fa-trash'></i>
+              <!-- <i class='fa-regular fa-eye'></i> -->
+              <i class='fa-solid fa-trash'></i>          
             </td>
           </tr>";
     
@@ -117,67 +120,7 @@
 
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script>
-const deleteButtons = document.querySelectorAll('.delete-button');
-const modal = document.getElementById('modal');
-const closeModal = document.querySelector('.close-button');
-const confirmDeleteButton = document.getElementById('confirm-delete');
-$('#loading-screen').hide();
-//  modal.style.display = 'block';
-$(document).ready(function() {
-            setTimeout(function() {
-                $('#loading-screen').show('slow');
-                $('#loading-screen').hide('slow');
-            }, 500)
-        }); // 2 seconds delay
-
-deleteButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    modal.style.display = 'block';
-  });
-});
-
-closeModal.addEventListener('click', () => {
-  modal.style.display = 'none';
-});
-
-confirmDeleteButton.addEventListener('click', () => {
-  // Perform delete operation here
-  modal.style.display = 'none';
-});
- 
-$(document).ready(function() {
- 
-            $('.fa-trash').click(function() {
-                
-                var id = $(this).closest('tr').find('td:first-child').text();
-                var title = $(this).closest('tr').find('td:nth-of-type(2)').text();
-
-                
-                if (confirm('Are you sure you want to delete ' + title + '?')) {
-                    $.ajax({
-                        type: 'POST',
-                        url: 'config/delete_item.php',
-                        data: {
-                            Id:id
-                        },
-                        success: function(response) {
-                            console.log(response);
-                            alert(response); 
-                            window.location.reload();
-
-                        },
-                        error: function(xhr, status, error) {
-                            console.error(error);
-                        }
-                    });
-                }
-            });
-            
-
-        });
-      
-    </script>
+    <script src="scripts/cart.js"></script>
     
 </body>
 </html>

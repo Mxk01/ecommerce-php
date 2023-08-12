@@ -9,14 +9,35 @@
     justify-content: center;
     align-items: center;
   }
-  
+  input {
+    border:0;
+  }
   .modal-content {
     background-color: white;
     padding: 20px;
     border-radius: 5px;
     text-align: center;
   }
-  
+  .search-container {
+    display: flex;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.search-icon {
+    color: #666;
+    margin-right: 10px;
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 16px;
+    width: 100%;
+}
   .close-button {
     position: absolute;
     top: 10px;
@@ -35,7 +56,4 @@
   .delete-button:focus {
     outline: none;
   }
-  table > tr > td > #product__image
-{
-    width:300px;
-}
+ 

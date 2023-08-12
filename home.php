@@ -60,15 +60,20 @@
 </div>
     <main>
         <?php echo "<h1>Welcome $username</h1>";?>
+        <div class="search-container">
+        <i class="fas fa-search search-icon"  ></i>
+        <input type="text" class="search-input"  placeholder="Search..." style="border:0;background:transparent;
+        outline:none;padding:30px;"/>
+    </div>
         <table class="product-table">
         <thead>
             <tr>
                 <th>No.</th>
                 <th>Product</th>
-                <!-- <th>Description</th> -->
-                <th>Price</th>
+                 <th>Price</th>
                 <th>Image</th>
-                <th>Detalii</th>
+                <th>Options</th>
+
             </tr>
         </thead>
         <tbody>
@@ -89,11 +94,9 @@
             <td>$noCount</td>
             <td>$title</td>
             <td>$price</td>
-            <td style='width:30%;'><img class='product-image' style='object-fit:cover; border-radius:5px; width:45%; height:30%;
-            ' src='$image'/>
-            <td>
-         
-          </tr>";
+            <td style='width:30%;'><img class='product-image' style='object-fit:cover; border-radius:5px; width:45%; height:30%;' src='$image'/></td>
+            <td> <i class='fa fa-shopping-cart' aria-hidden='true'></i> </td>
+        </tr>";
     
         }
     } else {
@@ -111,36 +114,8 @@
     </div>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script>
-const deleteButtons = document.querySelectorAll('.delete-button');
-const modal = document.getElementById('modal');
-const closeModal = document.querySelector('.close-button');
-const confirmDeleteButton = document.getElementById('confirm-delete');
-$('#loading-screen').hide();
+     <script src="scripts/main.js" defer>
 
- 
-$(document).ready(function() {
-            setTimeout(function() {
-                $('#loading-screen').show('slow');
-                $('#loading-screen').hide('slow');
-            }, 500)
-        }); // 2 seconds delay
-
-deleteButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    modal.style.display = 'block';
-  });
-});
-
-closeModal.addEventListener('click', () => {
-  modal.style.display = 'none';
-});
-
-confirmDeleteButton.addEventListener('click', () => {
-  // Perform delete operation here
-  modal.style.display = 'none';
-});
-  
     </script>
 </body>
 </html>
