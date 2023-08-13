@@ -144,4 +144,10 @@ main{
     color:blue;
 }
  
- 
+label.error {
+    color: red; 
+}
+
+ input.error {
+    border-color: red;  
+ }

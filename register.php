@@ -69,5 +69,42 @@
             </form>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#login-form").validate({
+                rules: {
+                    username: {
+                        required: true,
+                     },
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    password: {
+                        required: true
+                    }
+                },
+                messages: {
+                    username: {
+                        required: "Please enter your username"
+                    },
+                    email: {
+                        required: "Please enter your email",
+                        email: "Please enter a valid email address"
+                    },
+                    password: {
+                        required: "Please enter your password"
+                    }
+                },
+                submitHandler: function(form) {
+                    // This function will be called when the form is valid
+                    form.submit();
+                }
+            });
+        });
+    </script>
 </body>
 </html>

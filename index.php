@@ -10,10 +10,9 @@
 <?php
 // to persist data
 session_start();
-
 ?>
 <body>
-      <div class="container">
+    <div class="container">
         <div class="box form-box">
             <?php 
             include("config/config.php");
@@ -33,9 +32,8 @@ session_start();
                 }else{
                     echo "<div class='message'>
                       <p>Wrong Username or Password</p>
-                       </div> <br>";
-                   echo "<a href='index.php'><button class='btn'>Go Back</button>";
-         
+                    </div> <br>";
+                    echo "<a href='index.php'><button class='btn'>Go Back</button>";
                 }
                 if(isset($_SESSION['valid'])){
                     header("Location:home.php");
@@ -43,12 +41,10 @@ session_start();
                 else {
                     header("Location:index.php");
                 }
-                
             }
-            
             ?>
             <header>Login</header>
-            <form action="" method="post">
+            <form action="" method="post" id="login-form">
                 <div class="field input">
                     <label for="email">Email</label>
                     <input type="text" name="email" id="email" autocomplete="off" required>
@@ -60,14 +56,45 @@ session_start();
                 </div>
 
                 <div class="field">
-                    
                     <input type="submit" class="btn" name="submit" value="Login" required>
                 </div>
                 <div class="links">
-                    Don't have account? <a href="./register.php">Sign Up Now</a>
+                    Don't have an account? <a href="./register.php">Sign Up Now</a>
                 </div>
             </form>
         </div>
-      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#login-form").validate({
+                rules: {
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    password: {
+                        required: true
+                    }
+                },
+                messages: {
+                    email: {
+                        required: "Please enter your email",
+                        email: "Please enter a valid email address"
+                    },
+                    password: {
+                        required: "Please enter your password"
+                    }
+                },
+                submitHandler: function(form) {
+                    // This function will be called when the form is valid
+                    form.submit();
+                }
+            });
+        });
+    </script>
 </body>
 </html>

@@ -30,25 +30,7 @@ $('.fa-shopping-cart').click(function() {
             });
  
 $(document).ready(function() {
- 
-    $('.search-input').on("input", function(e) {
-       let searchTerm = e.target.textContext;
-       $.ajax({
-        type: 'GET',
-        url: 'config/find-item.php',
-        data: {
-            searchTerm
-        },
-        success: function(response) {
-            console.log(response);
-            // window.location.reload();
-
-        },
-        error: function(xhr, status, error) {
-            console.error(error);
-        }
-    });
-    });
+  
  
 
             setTimeout(function() {
@@ -57,6 +39,25 @@ $(document).ready(function() {
             }, 500)
         }); // 2 seconds delay
 
+
+        console.log($('.search-input'))
+        $('.search-icon').on("click", function() {
+            var searchTerm = $('.search-input').val(); // Get the search term from the input
+            $.ajax({
+                type: 'GET',
+                url: 'config/find-item.php',
+                data: {
+                    searchTerm: searchTerm // Use the correct variable name here
+                },
+                success: function(response) {
+                    alert(response);
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        });
+        
 deleteButtons.forEach(button => {
   button.addEventListener('click', () => {
     modal.style.display = 'block';
