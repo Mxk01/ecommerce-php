@@ -10,25 +10,10 @@ body, h1, h2, h3, p, ul, ol, li, figure, figcaption, blockquote, dl, dd {
     border: 1px solid #ddd;
     margin: 20px 0;
 }
-.search-container {
-    display: flex;
-    align-items: center;
-    background-color: #f2f2f2;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.search-icon {
-    color: #666;
-    margin-right: 10px;
-}
-
-.search-input {
-    border: none;
-    outline: none;
-    background: none;
-    font-size: 16px;
-    width: 100%;
+.emoji {
+    font-size: 40px;
+    transition: transform 0.5s;
+    cursor: pointer;
 }
 .product-table th,
 .product-table td {
@@ -88,4 +73,7 @@ main {
     color: white;
     font-size: 24px;
   }
- 
+ .footer > a {
+    text-decoration: none;
+    color:white;
+ }

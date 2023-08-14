@@ -30,7 +30,7 @@ $('.fa-shopping-cart').click(function() {
             });
  
 $(document).ready(function() {
-  
+ 
  
 
             setTimeout(function() {
@@ -39,7 +39,21 @@ $(document).ready(function() {
             }, 500)
         }); // 2 seconds delay
 
-
+        const emoji = $('.emoji');
+        console.log(emoji)
+         function changePositionAndRotate() {
+            // Generate new position and rotation values
+            const newX = Math.random() * ($(window).width() - emoji.width());
+            const newY = Math.random() * ($(window).height() - emoji.height());
+            const newRotation = Math.random() * 360;
+        
+             emoji.css({
+                left: newX + 'px',
+                top: newY + 'px',
+                transform: 'rotate(' + newRotation*2 + 'deg)'+'translate('+'30px'+')'
+            });
+        }
+        changePositionAndRotate()
         console.log($('.search-input'))
         $('.search-icon').on("click", function() {
             var searchTerm = $('.search-input').val(); // Get the search term from the input
@@ -72,4 +86,6 @@ confirmDeleteButton.addEventListener('click', () => {
   // Perform delete operation here
   modal.style.display = 'none';
 });
-  
+ 
+
+ 

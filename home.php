@@ -59,13 +59,15 @@
   </div>
 </div>
     <main>
+    <div class="emoji">💰</div>
+
         <?php echo "<h1>Welcome $username</h1>";?>
         <div class="search-container">
         <i class="fas fa-search search-icon"  ></i>
         <input type="text" class="search-input"  placeholder="Search..." style="border:0;background:transparent;
         outline:none;padding:30px;"/>
     </div>
-        <table class="product-table">
+        <table class="product-table" id="p_table">
         <thead>
             <tr>
                 <th>No.</th>
@@ -109,8 +111,11 @@
 
     </table>
     <div class="footer">
+        <a href="#p_table" style="text-decoration:none;background-color:white; color:black; border-radius:15px;
+        padding:20px; position:fixed;
+        top:96%;">Check the products</a>
         <p>&copy; 2023 Your Website. All rights reserved.</p>
-        <button id="scrollToTop">Scroll to Top</button>
+       
     </div>
     </main>
     
